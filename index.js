@@ -74,9 +74,22 @@ for (aluno of alunosDaEscola) {
 }
 }
 listarAlunos();
-// function buscarAluno(nome:string){
-// /* Por meio dessa função, podemos pesquisar um aluno por nome na lista de aluno. Ela deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. E deverá devolver um aluno em seu retorno. */
-// }
+
+
+function buscarAluno(nome){
+/* Por meio dessa função, podemos pesquisar um aluno por nome na lista de aluno. 
+Ela deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. 
+E deverá devolver um aluno em seu retorno. */
+
+    let alunoEncontrado = alunosDaEscola.filter((aluno) => {
+        return aluno.nome == nome;
+});
+    console.log(alunoEncontrado.length > 0 ? 'Aluno Encontrado!' : 'Aluno Não Encontrado!');
+    return alunoEncontrado;
+}
+console.log(buscarAluno('Bruno'));
+
+
 // function matricularAluno(aluno:object, curso:string){
 // /* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
 // Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, e deverá armazenar a data atual no momento da matricula
