@@ -137,7 +137,7 @@ function aplicarFalta(aluno){
     if (buscarAluno(aluno.nome)) {
         if (aluno.cursos) {
             aluno.faltas++;
-            console.log('Falta aplicada com sucesso!');
+            console.log(`Aplicada uma falta para o aluno ${aluno.nome}`);
         }
     }
 }
@@ -146,22 +146,41 @@ function aplicarFalta(aluno){
 
 // aplicarFalta(
 //     {
-//     nome: 'adfs',
+//     nome: 'Bruno',
 //     notas: [],
 //     cursos: [],
 //     faltas: 0
 //     }
 // );
 
-function aplicarNota(aluno:object){
+function aplicarNota(aluno, nota){
 /*
     Ao receber um aluno devidamente cadastrado em nossa lista. 
-    Você deverá adicionar uma nota ao aluno na sua lista de notas. V
-    ocê deverá dar um feedback ao concluir a tarefa. 
+    Você deverá adicionar uma nota ao aluno na sua lista de notas. 
+    Você deverá dar um feedback ao concluir a tarefa. 
     Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
 */
 
+    if (buscarAluno(aluno.nome)) {
+        if (aluno.cursos) {
+            aluno.notas.push(nota);
+            console.log(`Aplicada a nota ${nota} para o aluno ${aluno.nome}`);
+        }
+    }
+
 }
+
+// Executa aplicarNota
+
+aplicarNota(
+    {
+    nome: 'Bruno',
+    notas: [],
+    cursos: [],
+    faltas: 0
+    },
+    8
+);
 
 //     function aprovarAluno(aluno:object){
 //     /* 
