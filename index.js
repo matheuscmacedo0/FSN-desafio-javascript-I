@@ -46,7 +46,7 @@ function adicionarAluno(nome){
 /*Essa função irá receber uma *string* que é nome do aluno a ser criado. 
 E seguindo o modelo de aluno, o mesmo deverá ser inserido na lista de alunos.
 A função deve devolver um feedback de sucesso, caso o aluno seja inserido corretamente.*/
-let aluno = [
+let novoAluno = [
     {
         nome: nome,
         notas: [],
@@ -54,17 +54,26 @@ let aluno = [
         faltas: 0
     }
 ]
-alunosDaEscola.push(aluno);
+alunosDaEscola.push(novoAluno);
 
 console.log(`O aluno ${nome} foi adicionado com sucesso!`);
 }
 
 adicionarAluno('Matheus');
 
-// function listarAlunos(){
-// /*Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
-// Vale dizer que As informações deverão ser exibidas em um formato amigável.*/
-// }
+function listarAlunos(){
+/*Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
+Vale dizer que As informações deverão ser exibidas em um formato amigável.*/
+for (aluno of alunosDaEscola) {
+    console.log(`
+    Aluno: ${aluno.nome}
+    Notas: ${aluno.notas}
+    Cursos: ${aluno.cursos}
+    Faltas: ${aluno.faltas}
+    `)
+}
+}
+listarAlunos();
 // function buscarAluno(nome:string){
 // /* Por meio dessa função, podemos pesquisar um aluno por nome na lista de aluno. Ela deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. E deverá devolver um aluno em seu retorno. */
 // }
