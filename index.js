@@ -172,19 +172,51 @@ function aplicarNota(aluno, nota){
 
 // Executa aplicarNota
 
-aplicarNota(
+// aplicarNota(
+//     {
+//     nome: 'Bruno',
+//     notas: [],
+//     cursos: [],
+//     faltas: 0
+//     },
+//     8
+// );
+
+function aprovarAluno(aluno){
+    /* 
+    Ao receber um aluno devidamente cadastrado em nossa lista, 
+    deverá dizer se o mesmo está aprovado ou não. 
+    Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
+    Só o aluno só poderá ser aprovado se o mesmo tiver matriculado em um curso.
+    */
+
+   if (buscarAluno(aluno.nome)) {
+    if (aluno.cursos) {
+        if (aluno.faltas < 3) {
+            let media = aluno.notas.reduce((acumulador, nota) => {
+                return acumulador + nota;
+            });
+            media = media / aluno.notas.length;
+            if (media >= 7) {
+
+                console.log(`O aluno ${aluno.nome} foi aprovado!`);
+            } else {
+                console.log(`O aluno ${aluno.nome} foi reprovado por nota!`);
+            }
+        } else {
+            console.log(`O aluno ${aluno.nome} foi reprovado por falta!`);
+        }
+    }
+}
+}
+
+// Executa aprovarAluno
+
+aprovarAluno(
     {
     nome: 'Bruno',
-    notas: [],
+    notas: [6, 8, 9],
     cursos: [],
     faltas: 0
-    },
-    8
+    }
 );
-
-//     function aprovarAluno(aluno:object){
-//     /* 
-//     Ao receber um aluno devidamente cadastrado em nossa lista, deverá dizer se o mesmo está aprovado ou não. Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
-//     Só o aluno só poderá ser aprovado se o mesmo tiver matriculado em um curso.
-//     */
-//     }
