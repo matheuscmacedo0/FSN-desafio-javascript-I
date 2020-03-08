@@ -21,7 +21,12 @@ const alunosDaEscola = [
     {
         nome:"Guilherme",
         notas:[10,9.8,9.6],
-        cursos:[{nomeDoCurso:"Full Stack",dataMatricula:new Date}],
+        cursos:[
+            {
+                nomeDoCurso:"Full Stack",
+                dataMatricula:new Date
+            }
+        ],
         faltas:0
     },
     {
@@ -33,7 +38,12 @@ const alunosDaEscola = [
     {
         nome:"Lucca",
         notas:[10,9.8,9.6],
-        cursos:[{nomeDoCurso:"UX",dataMatricula:new Date}],
+        cursos:[
+            {
+                nomeDoCurso:"UX",
+                dataMatricula:new Date
+            }
+        ],
         faltas:0
     }
 ];
@@ -59,7 +69,8 @@ alunosDaEscola.push(novoAluno);
 console.log(`O aluno ${nome} foi adicionado com sucesso!`);
 }
 
-adicionarAluno('Matheus');
+// Executa adicionarAluno
+// adicionarAluno('Matheus');
 
 function listarAlunos(){
 /*Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
@@ -73,7 +84,8 @@ for (aluno of alunosDaEscola) {
     `)
 }
 }
-listarAlunos();
+// Executa listarAlunos
+// listarAlunos();
 
 
 function buscarAluno(nome){
@@ -83,29 +95,73 @@ E deverá devolver um aluno em seu retorno. */
 
     let alunoEncontrado = alunosDaEscola.filter((aluno) => {
         return aluno.nome == nome;
-});
+    });
     console.log(alunoEncontrado.length > 0 ? 'Aluno Encontrado!' : 'Aluno Não Encontrado!');
     return alunoEncontrado;
 }
-console.log(buscarAluno('Bruno'));
+// Executa buscarAluno
+// console.log(buscarAluno('Bruno'));
 
 
-// function matricularAluno(aluno:object, curso:string){
-// /* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
-// Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, e deverá armazenar a data atual no momento da matricula
-// Lembre-se de exibir o feedback para o usuário. */
-// }
-// function aplicarFalta(aluno:object){
-// /*
-//     Ao receber um aluno devidamente cadastrado em nossa lista. Você deverá incrementar uma falta ao aluno. Você deverá dar um feedback ao concluir a tarefa. Só poderá aplicar falta em aluno se o mesmo tiver matriculado em um curso.
-// */
-// }
+function matricularAluno(aluno, curso){
+/* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
+Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, 
+e deverá armazenar a data atual no momento da matricula
+Lembre-se de exibir o feedback para o usuário. */
 
-// function aplicarNota(aluno:object){
-// /*
-//     Ao receber um aluno devidamente cadastrado em nossa lista. Você deverá adicionar uma nota ao aluno na sua lista de notas. Você deverá dar um feedback ao concluir a tarefa. Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
-// */
-// }
+    if (buscarAluno(aluno.nome)) {
+        let matricula = [curso, new Date()];
+        aluno.cursos.push(matricula);    
+    }
+    console.log(`Aluno matriculado no curso ${curso} com sucesso!`);
+}
+
+
+// Executa matricularAluno
+// matricularAluno(  {
+//     nome: 'Bruno',
+//     notas: [],
+//     cursos: [],
+//     faltas: 0
+// }, 'Programação');
+
+
+function aplicarFalta(aluno){
+/*
+    Ao receber um aluno devidamente cadastrado em nossa lista. 
+    Você deverá incrementar uma falta ao aluno. 
+    Você deverá dar um feedback ao concluir a tarefa. 
+    Só poderá aplicar falta em aluno se o mesmo tiver matriculado em um curso.
+*/
+
+    if (buscarAluno(aluno.nome)) {
+        if (aluno.cursos) {
+            aluno.faltas++;
+            console.log('Falta aplicada com sucesso!');
+        }
+    }
+}
+
+// Executa aplicarFalta
+
+// aplicarFalta(
+//     {
+//     nome: 'adfs',
+//     notas: [],
+//     cursos: [],
+//     faltas: 0
+//     }
+// );
+
+function aplicarNota(aluno:object){
+/*
+    Ao receber um aluno devidamente cadastrado em nossa lista. 
+    Você deverá adicionar uma nota ao aluno na sua lista de notas. V
+    ocê deverá dar um feedback ao concluir a tarefa. 
+    Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
+*/
+
+}
 
 //     function aprovarAluno(aluno:object){
 //     /* 
